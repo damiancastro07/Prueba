@@ -1,0 +1,86 @@
+<div class="container">
+  <h1>Editar Producto</h1>
+  <form [hidden]="submitted">
+    <div class="form-group">
+      <div class="col-xs-4">
+        <label for="name">Descripcion</label>
+        <input type="text" class="col-sm-6 form-control" id="descripcion" required [(ngModel)]="producto.descripcion" name="descripcion" #descripcion="ngModel">
+        <div [hidden]="descripcion.valid || descripcion.pristine"
+             class="alert alert-danger">
+          Descripcion es campo requerido
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-4">
+        <label for="alterEgo">Marca</label>
+        <input type="text" class="col-sm-6 form-control" id="marca" required [(ngModel)]="producto.marca" name="marca" #marca="ngModel">
+        <div [hidden]="marca.valid || marca.pristine"
+             class="alert alert-danger">
+          Marca es campo requerido
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-4">
+        <label for="power">Modelo</label>
+        <input type="text" class="col-sm-6 form-control" id="modelo" required [(ngModel)]="producto.modelo" name="modelo" #modelo="ngModel">
+        <div [hidden]="modelo.valid || modelo.pristine"
+             class="alert alert-danger">
+          Modelo es campo requerido
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-4">
+        <label for="power">Precio Unitario</label>
+        <input type="number" step="any" min="0" class="col-sm-6 form-control" id="precioUnitario" required [(ngModel)]="producto.precioUnitario" name="precioUnitario" #precioUnitario="ngModel">
+        <div [hidden]="precioUnitario.valid || precioUnitario.pristine"
+             class="alert alert-danger">
+          El Precio unitario es campo requerido
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-4">
+        <label for="power">Porcentaje Descuento</label>
+        <input type="number" step="any" min="0" class="col-sm-6 form-control" id="porcentajeDescuento" required [(ngModel)]="producto.porcentajeDescuento" name="porcentajeDescuento" #porcentajeDescuento="ngModel">
+        <div [hidden]="porcentajeDescuento.valid || porcentajeDescuento.pristine"
+             class="alert alert-danger">
+          El Porcentaje Descuento es campo requerido
+        </div>
+      </div>
+    </div>
+
+    <hr />
+    <button type="submit" class="btn btn-success" (click)="UpdateProduct()">Actualizar</button>
+
+  </form>
+  <div [hidden]="!submitted">
+    <div class="row">
+      <h1>El siguiente producto fue actualizado</h1>
+    </div>    
+    <div class="row">
+      <div class="col-xs-3">Descripcion: </div>
+      <div class="col-xs-9">{{ producto.descripcion }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Marca: </div>
+      <div class="col-xs-9">{{ producto.marca }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Modelo: </div>
+      <div class="col-xs-9">{{ producto.modelo }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Precio Unitario: </div>
+      <div class="col-xs-9">{{ producto.precioUnitario }}</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-3">Porcentaje Descuento: </div>
+      <div class="col-xs-9">{{ producto.porcentajeDescuento }}</div>
+    </div>
+    <br>
+    <button class="btn btn-primary" (click)="Limpiar()">Aceptar</button>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<h1>Productos</h1>
+
+<p *ngIf="!productos"><em>Cargando...</em></p>
+
+<table class='table table-striped' *ngIf="productos">
+  <thead>
+    <tr>
+      <th>Descripcion</th>
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Precio Unitario</th>
+      <th>Porcentaje Descuento</th>
+      <th>Acción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of productos">
+      <td>{{ producto.descripcion }}</td>
+      <td>{{ producto.marca }}</td>
+      <td>{{ producto.modelo }}</td>
+      <td>{{ producto.precioUnitario }}</td>
+      <td>{{ producto.porcentajeDescuento }}</td>
+
+      <th>
+        <button class="btn btn-danger" (click)="Delete(producto.id)">Eliminar</button>
+      </th>
+      <th>
+        <button class="btn btn-primary" (click)="Editar(producto.id)">Editar</button>
+      </th>
+
+
+    </tr>
+  </tbody>
+</table>
+
+
